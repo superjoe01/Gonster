@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GONSTER Merch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #0e0e0e;
+      color: #f0f0f0;
+    }
+    header {
+      background-color: #1c1c1c;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    header h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: 2.5rem;
+      color: #d4af37;
+    }
+    nav a {
+      color: #f0f0f0;
+      margin-left: 2rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .hero {
+      background: linear-gradient(to bottom, #1c1c1c, #0e0e0e);
+      text-align: center;
+      padding: 5rem 2rem 2rem;
+    }
+    .hero h2 {
+      font-size: 3rem;
+      font-family: 'Anton', sans-serif;
+      color: #d4af37;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-top: 1rem;
+    }
+    .section {
+      padding: 3rem 2rem;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .product {
+      background-color: #1c1c1c;
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .product:hover {
+      transform: scale(1.05);
+    }
+    .product img {
+      width: 100%;
+      height: auto;
+    }
+    .product h3, .product p {
+      padding: 0.8rem 1rem;
+    }
+    .price {
+      color: #d4af37;
+      font-weight: bold;
+    }
+    .add-btn {
+      background-color: #d4af37;
+      color: #000;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .cart {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background-color: #1c1c1c;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #000;
+      color: #f0f0f0;
+      max-width: 250px;
+    }
+    .footer {
+      background-color: #111;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+    .footer a {
+      color: #d4af37;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GONSTER</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="flavors.html">Flavors</a>
+      <a href="merch.html">Merch</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Official Merch</h2>
+    <p>Rep the beast with our exclusive collection of hats, shirts, and drinkware.</p>
+  </section>
+
+  <section class="section">
+    <div class="product-grid">
+      <div class="product">
+        <img src="https://imgur.com/m10Zeen.png" alt="Gonster Cap">
+        <h3>Gonster Ball Cap</h3>
+        <p>Dark, bold, and built for hype. Signature Monster x Guinness embroidery.</p>
+        <p class="price">$24.99</p>
+        <button class="add-btn" onclick="addToCart('Gonster Ball Cap', 24.99)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://imgur.com/dU13QLI.png" alt="Gonster Tee">
+        <h3>GONSTER T-Shirt</h3>
+        <p>Black tee with sleek gold logo. Subtle power, all-day comfort.</p>
+        <p class="price">$29.99</p>
+        <button class="add-btn" onclick="addToCart('Gonster T-Shirt', 29.99)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://imgur.com/ieLkDwt.png" alt="Gonster Coozie">
+        <h3>Monster Can Coozie</h3>
+        <p>Stay cold in the dark. Perfect fit for Monster-sized cans.</p>
+        <p class="price">$12.99</p>
+        <button class="add-btn" onclick="addToCart('Gonster Coozie', 12.99)">Add to Cart</button>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 2rem;">
+      <button class="add-btn" onclick="window.location.href='checkout.html'">Checkout</button>
+    </div>
+  </section>
+
+  <div class="cart" id="cart">
+    <h3>Cart</h3>
+    <ul id="cart-items" style="list-style: none; padding-left: 0;"></ul>
+    <p><strong>Total: $<span id="cart-total">0.00</span></strong></p>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 GONSTER. All Rights Reserved. <br>
+    <a href="index.html">← Back to Home</a>
+  </footer>
+
+  <script>
+    const cart = [];
+
+    function addToCart(item, price) {
+      cart.push({ item, price });
+      renderCart();
+    }
+
+    function renderCart() {
+      const itemsContainer = document.getElementById("cart-items");
+      const totalEl = document.getElementById("cart-total");
+      itemsContainer.innerHTML = "";
+      let total = 0;
+      cart.forEach(({ item, price }) => {
+        const li = document.createElement("li");
+        li.textContent = `${item} - $${price.toFixed(2)}`;
+        itemsContainer.appendChild(li);
+        total += price;
+      });
+      totalEl.textContent = total.toFixed(2);
+    }
+  </script>
+</body>
+</html>

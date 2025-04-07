@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GONSTER Battle Pass</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: url('https://imgur.com/3H8Zr2P.png') no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: blur(6px);
+      color: #f0f0f0;
+      overflow: hidden;
+    }
+    .vault {
+      background-color: rgba(0, 0, 0, 0.8);
+      border: 2px solid #d4af37;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 0 40px #d4af37;
+      text-align: center;
+      max-width: 600px;
+      margin: 10vh auto;
+      position: relative;
+      z-index: 2;
+    }
+    .vault-doors {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .door {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: radial-gradient(circle, #222 0%, #000 100%);
+      box-shadow: inset 0 0 30px #000;
+      transition: transform 2s ease-in-out;
+    }
+    .door.left {
+      left: 0;
+      transform: translateX(0);
+      border-right: 2px solid #d4af37;
+    }
+    .door.right {
+      right: 0;
+      transform: translateX(0);
+      border-left: 2px solid #d4af37;
+    }
+    body.vault-open .door.left {
+      transform: translateX(-100%);
+    }
+    body.vault-open .door.right {
+      transform: translateX(100%);
+    }
+    h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: 4rem;
+      color: #d4af37;
+      text-shadow: 2px 2px #000;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+    .price-tag {
+      font-size: 2rem;
+      color: #f54242;
+      margin: 1.5rem 0;
+      font-weight: bold;
+    }
+    button {
+      background-color: #d4af37;
+      color: #000;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ffd700;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="vault-doors">
+    <div class="door left"></div>
+    <div class="door right"></div>
+  </div>
+
+  <div class="vault">
+    <h1>VAULT LOCKED</h1>
+    <p>This exclusive GONSTER vault requires a Battle Pass to proceed. No mortal may pass without tribute.</p>
+    <div class="price-tag">Unlock for $1,000,000</div>
+    <button onclick="alert('Transaction failed: insufficient funds. Contact your offshore banker.')">Buy Battle Pass</button>
+  </div>
+
+  <footer>
+    &copy; 2025 GONSTER. All Rights Reserved.
+  </footer>
+
+  <script>
+    window.onload = () => {
+      setTimeout(() => {
+        document.body.classList.add('vault-open');
+      }, 500);
+    };
+  </script>
+</body>
+</html>

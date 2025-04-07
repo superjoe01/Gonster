@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GONSTER | Monster x Guinness</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: url('https://imgur.com/RtbXvqe.png') no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: blur(3px);
+      color: #f0f0f0;
+    }
+    header {
+      background-color: rgba(28, 28, 28, 0.85);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    header h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: 4.5rem;
+      color: #d4af37;
+    }
+    nav a {
+      color: #f0f0f0;
+      margin-left: 2rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    .hero h2 {
+      font-size: 3rem;
+      font-family: 'Anton', sans-serif;
+      color: #fff;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-top: 1rem;
+    }
+    .section {
+      padding: 3rem 2rem;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      font-family: 'Anton', sans-serif;
+      color: #d4af37;
+      margin-bottom: 2rem;
+    }
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background-color: rgba(28, 28, 28, 0.85);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+    .card h3, .card p {
+      padding: 1rem;
+    }
+    .cta-button {
+      background-color: #d4af37;
+      color: #000;
+      padding: 1rem 2rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 1.5rem;
+    }
+    footer {
+      background-color: rgba(17, 17, 17, 0.85);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+    footer a {
+      color: #d4af37;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GONSTER</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="flavors.html">Flavors</a>
+      <a href="merch.html">Merch</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Unleash the Beast. Savor the Dark.</h2>
+    <p>The ultimate fusion of Monster Energy & Guinness.</p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Featured Flavors</h2>
+    <div class="card-container">
+      <a href="gonster_original.html" class="card">
+        <img src="https://i.imgur.com/1hm0oYn.png" alt="Gonster Original">
+        <h3>Gonster Original</h3>
+        <p>The smooth power of Monster infused with Guinness' rich finish.</p>
+      </a>
+      <a href="swamp_slam.html" class="card">
+        <img src="https://i.imgur.com/Gk90SgP.png" alt="Swamp Slam">
+        <h3>Swamp Slam</h3>
+        <p>Billie Irish approved. A wild mix of bayou fruit and Guinness malt.</p>
+      </a>
+      <a href="peachy_blinders.html" class="card">
+        <img src="https://i.imgur.com/9Vj5FUG.png" alt="Peachy Blinders">
+        <h3>Peachy Blinders</h3>
+        <p>Peachy and bold, with gangster attitude. Ft. Peaky Blinders.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Official Merch</h2>
+    <div class="card-container">
+      <a href="merch.html" class="card">
+        <img src="https://i.imgur.com/oHwsI5T.png" alt="Gonster Merch" style="width: 80%; max-width: 300px; margin: 0 auto; display: block;" />
+        <h3>Caps, Tees, and More</h3>
+        <p>Rep the beast with official Gonster gear, styled in Guinness black and Monster green.</p>
+      </a>
+      <div class="card" style="display: flex; flex-direction: column; justify-content: center; padding: 1rem;">
+        <h3>Customer Reviews</h3>
+        <div id="review-box" style="font-size: 1rem; color: #ccc; min-height: 100px;"></div>
+      </div>
+    </div>
+    <a href="merch.html" class="cta-button">Shop Now</a>
+  </section>
+
+  <footer>
+    &copy; 2025 GONSTER. Monster x Guinness. All Rights Reserved.<br>
+    <a href="about.html">About Us</a>
+  </footer>
+
+  <script>
+    const reviews = [
+      { text: "Absolutely love the Gonster cap!🔥", stars: 5, user: "@beastmode69" },
+      { text: "Stylish and durable — a must-have.", stars: 4, user: "@darkbrewfan" },
+      { text: "Wore this to the gym and felt unstoppable.", stars: 5, user: "@navyrunsongonster" },
+      { text: "Quality is top-notch. Looks even better in person!", stars: 5, user: "@guinmonk" },
+      { text: "Matches the energy of the drink perfectly.", stars: 4, user: "@monsteredmond" }
+    ];
+
+    let reviewIndex = 0;
+    function updateReview() {
+      const reviewBox = document.getElementById("review-box");
+      const { text, stars, user } = reviews[reviewIndex];
+      const starIcons = '⭐'.repeat(stars);
+      const now = new Date().toLocaleString();
+      reviewBox.innerHTML = `
+        <p><strong>${user}</strong> • <em>${now}</em> <span style='background-color: #2ecc71; color: #fff; padding: 0.2rem 0.5rem; border-radius: 5px; font-size: 0.8rem; margin-left: 0.5rem;'>✔ Verified Purchase</span></p>
+        <p>"${text}"</p>
+        <p style='color: gold;'>${starIcons}</p>
+      `;
+      reviewIndex = (reviewIndex + 1) % reviews.length;
+    }
+
+    setInterval(updateReview, 5000);
+    window.onload = updateReview;
+  </script>
+</body>
+</html>
